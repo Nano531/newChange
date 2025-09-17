@@ -1,0 +1,31 @@
+SELECT 
+	Userinfo.UserId,
+	Userinfo.Consecutivo,
+	Userinfo.Name, 
+	Checkinout.CheckTime, 
+	( 
+		Checkinout.CheckTime - Checkinout.CheckTime
+	) AS Hora
+FROM Userinfo 
+	INNER JOIN 
+	(
+		TbTurnos 
+		INNER JOIN 
+		(
+			TbJornadaTurno 
+			INNER JOIN 
+			(
+				TbDias 
+				INNER JOIN 
+				(
+					Checkinout INNER JOIN 
+					TbDiaJornadaTurno ON Checkinout.IdDjT = TbDiaJornadaTurno.IdDjT
+				) ON TbDias.IdDia = TbDiaJornadaTurno.IdDia
+			) ON TbJornadaTurno.IdJt = TbDiaJornadaTurno.IdJt
+		) ON TbTurnos.Idturno = TbJornadaTurno.Idturno
+	) ON Userinfo.Userid = Checkinout.Userid 
+WHERE Checkinout.CheckType='E'
+	
+	AND Userinfo.Name<>'0' 
+	AND YEAR(Checkinout.CheckTime)='2023' 
+	AND MONTH(Checkinout.CheckTime)=03;

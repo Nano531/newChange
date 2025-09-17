@@ -1,0 +1,64 @@
+body{ font-family:sans-serif; font-size:14px; background-color: #bad7e9 }
+#contenedor{width:896px; margin:0 auto; border:2px solid #ccc; border-radius:4px; padding: 50px; background-color:#fff}
+#cabecera img{ float:right; margin: 0 20px 0 0}
+.lineaPrin {clear:both; }
+#menu {width:856px;  padding: 10px 20px 10px 20px; background-image:url(../img/fondo_menu.png);  background-repeat:repeat-x; margin:20px 0 20px 0; color:#FFFFFF}
+#menu a{ color:#fff; margin: 10px; text-decoration:none} 
+.menu2 {background-image:url(../../presentacion/img/fondo_menu2.png); background-repeat:repeat-x; list-style:none; float:left; color:#fff; width:140px; padding:10px 20px 10px 20px; margin:5px 0 5px 0 }
+hr{border: 2px solid #bad7e9}
+a{color:#006680; text-decoration:none}
+.inputsesion{width:200px}
+#cajaSesion{ padding: 20px; background-color:#bad7e9 }
+#izquierda{padding: 10px; border: 3px solid #2c89a0; border-radius:4px; width:394px; margin: 20px 10px 0 0; float:left}
+#izquierda2{padding: 60px 20px 20px 20px;   width:294px; margin: 20px 10px 0 0; float:left}
+#derecha{padding: 10px;  width:404px; margin: 20px 10px 0 0; float:left; text-align:justify}
+#derecha2{padding: 10px;  width:504px; margin: 20px 10px 0 0; float:left; text-align:justify}
+#pie{clear:both; text-align:center}
+h2{ color:#ff2a2a }
+#caja1{padding: 20px; border: 2px solid #2c89a0; border-radius:4px; width:450px; margin: 20px auto;}
+#menuProg{ padding: 50px 0 50px 0; text-align:center}
+#menuProg table td{margin: 10px; padding: 10px; }
+#menuProg table td a{font-size:12px; color:#777; text-decoration:none}
+#menuProg img{border:none; max-width:80px; max-height:80px}
+#texto{padding:20px; border:2px solid #2C89A0}
+.ruta{font-size:12px} 
+.ruta a{color:#000; }
+.tab tr td{border: 2px solid #006680; padding: 5px;  font-size:12px;}
+.tab tr th{border: 2px solid #006680; padding: 5px; text-align:left; }
+#datosIzq{float:left; padding:10px 20px 0 0; width:180px}
+#datosCen{float:left; padding: 10px 0 10px 0; width:646px; color:#333}
+#datosCen table th{text-align:left}
+#datosCen table th,td{padding:0 10px 0 0px}
+#datosCen2 table th{text-align:left}
+.tituloNom{background-color:#164450; padding:10px 20px 10px 20px; color:#fff; font-size:16px }
+#datos1{/*width:400px;*/width:100%; float:left}
+#datos2{width:230px; float:left; margin: 0 0 0 10px}
+#datos2 a {margin:10px; text-decoration:underline}
+#menuItem{border: 3px solid #006680}
+.formulario{ padding: 20px; background-color:#BAD7E9; width:500px; margin:0 auto}
+.formulario input{ height:20px; border: 2px solid #164450}
+.formulario table tr td{padding:3px}
+.btn{padding:10px 40px 10px 40px}
+.btn2{padding:5px 10px 5px 10px; border: 2px solid #2C89A0}
+.link{float:right; margin: 0 10px 0 0; font-size:12px}
+.link3{ font-size:10px;  padding:0 0px 0 10px}
+.link2{ padding:10px 30px 10px 30px; background-color:red; color:#fff;}
+#formulario2{width:700px; margin:50px auto; text-align:center; padding:0 0 50px 0}
+.textbox{height:20px; border: 1px solid #164450}
+#result{width:800px; border: 3px solid #ccc; padding:20px; margin:0 auto}
+.aster{color:red; font-size:16px}
+#academico{}
+.linkmenu{padding:5px 5px 5px 10px}
+#fotouser{max-width:170px; max-height:180px}
+.listaCapa td,th{ padding:5px}
+#listatotal{float:left; padding:10px 20px 0 0; width:500px}
+#listacon{float:left; padding:10px; width:300px; border:2px solid #2C89A0}
+h3{color:#2c89a0;}
+.TbDota{ border:3px solid #164450; font-size:12px; width: 100%; }
+.TbDota th{text-align:center}
+.TbDota th{padding:5px; border:1px solid #2C89A0}
+.TbDota td{padding:5px;}
+/* #TbRetardos td{text-align:center;} */
+.menu1{background-color: #7accff;padding: 7px 0px 8px 0px;border-top: 4px solid #0092ed;border-bottom: 4px solid #0092ed;border: 1px 0px 1px 0px;}
+.menu3{background-color: #bad7e98c;padding: 7px 0px 8px 0px;border-bottom: 4px solid #0092ed;border: 1px 0px 1px 0px;}
+.menu4{background-color: #bad7e98c;padding: 7px 0px 8px 0px;border-bottom: 4px solid #0092ed;border: 1px 0px 1px 0px;}

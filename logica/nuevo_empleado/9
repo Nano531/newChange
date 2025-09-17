@@ -1,0 +1,33 @@
+SELECT 
+	Userinfo.UserId,
+	Userinfo.Consecutivo,
+	Userinfo.Name, 
+	Checkinout.CheckTime, 
+	CONVERT(DATE,Checkinout.CheckTime) AS Fecha, 
+	(
+		CONVERT(TIME,Checkinout.CheckTime)
+	) AS Hora,
+	Checkinout.CheckTime as llegada,
+	TbTurnos.Entra,
+	TbDias.NomDia
+FROM Userinfo 
+	INNER JOIN 
+	(
+		TbTurnos 
+		INNER JOIN 
+		(
+			TbJornadaTurno 
+			INNER JOIN 
+			(
+				TbDias 
+				INNER JOIN 
+				(
+					Checkinout INNER JOIN 
+					TbDiaJornadaTurno ON Checkinout.IdDjT = TbDiaJornadaTurno.IdDjT
+				) ON TbDias.IdDia = TbDiaJornadaTurno.IdDia
+			) ON TbJornadaTurno.IdJt = TbDiaJornadaTurno.IdJt
+		) ON TbTurnos.Idturno = TbJornadaTurno.Idturno
+	) ON Userinfo.Userid = Checkinout.Userid 
+WHERE Checkinout.CheckType='E'
+	
+	AND Userinfo.Name<>'0' 

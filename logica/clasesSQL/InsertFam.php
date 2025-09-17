@@ -1,0 +1,73 @@
+<?php
+/**
+ * 
+ */
+class InsertFam {
+	var $tabla='TbFamilia';
+	var $condicion;
+	var $campos;
+	var $noNulos;
+	
+	public function SetCondicion($nuevaCondicion)
+	{
+		$this->condicion=$nuevaCondicion;
+	}
+	public function validarNulos($valor, $campo)
+	{
+		if($valor!="")
+		{			
+			$this->campos[]=$campo;
+			$this->noNulos[]=$valor;
+		}
+	}
+	public function tamañoArray()
+	{
+		$tm=count($this->noNulos);
+		return $tm;
+	}
+    public function verInsert()
+	{
+		$sql1="INSERT INTO $this->tabla ";
+		$sql2=$this->comparativos();
+		$sql3=$this->valores();
+		$sqlCompleto=$sql1.$sql2.$sql3;
+		return $sqlCompleto;
+	}
+	public function comparativos()
+	{
+		$tam=$this->tamañoArray();
+		$tam1=count($this->noNulos);
+		$value=" (";
+		for ($i=0; $i < $tam; $i++) {			
+			$campo=$this->campos[$i];
+			if($campo=="Userid") $value=$value.$campo.")";
+			else $value=$value.$campo.", ";
+		}
+		return $value;
+	}
+	public function valores()
+	{
+		$tam=count($this->noNulos);	
+		$value=" VALUES ("; 
+		for ($i=0; $i < $tam; $i++) {
+			$campo=$this->campos[$i];
+			$noNulos=$this->noNulos[$i];
+			if($campo=='Nombres' || $campo=='Apellidos' || $campo=='Direccion' || $campo=='Telefono' || $campo=='Celular' || $campo=='Ciudad' )
+			{
+				//El campo es un estring
+			   $value=$value."'$noNulos',";
+			}
+			else if($campo=="Userid")
+				{
+					$value=$value."'$noNulos');";
+				}
+			else if($campo=="FechaNacimiento")
+			{
+				$value=$value."#$noNulos#,";
+			}
+			else $value=$value."$noNulos,";
+		}
+		return $value;
+	}
+}
+?>

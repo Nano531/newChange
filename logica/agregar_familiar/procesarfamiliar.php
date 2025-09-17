@@ -1,0 +1,54 @@
+<?php
+//header('refresh:5; url=../../index.php');
+session_start();
+require('../../presentacion/popUp.class.php');
+require('../../datos/gestor.php');
+require('../clasesSQL/InsertFam.php');
+class agregarfamiliar extends PopUp
+{	
+  function mostrarContenido()
+  {
+  	$conexion=new gestorDB();
+	$conexion->conectar();	
+  	echo"<div id='texto'>";
+
+	if($_SESSION['tipo']=='Root' || $_SESSION['tipo']=='Admin')
+	{
+		$ins=new InsertFam();
+		$ins->validarNulos($_POST[tipoDocu], "TipoDocumento");
+		$ins->validarNulos($_POST[docu], "Documento");
+		$ins->validarNulos($_POST[nom], "Nombres");
+		$ins->validarNulos($_POST[ape], "Apellidos");
+		$ins->validarNulos($_POST[paren], "IdParentesco");
+		$ins->validarNulos($_POST[fechaNac], "FechaNacimiento");
+		$ins->validarNulos($_POST[dir], "Direccion");
+		$ins->validarNulos($_POST[fijo], "Telefono");
+		$ins->validarNulos($_POST[movil], "Celular");
+		$ins->validarNulos($_POST[ciudad], "Ciudad");
+		$ins->validarNulos($_POST[idu], "Userid");
+		$sql=$ins->verInsert();
+		echo $sql;
+		$result=$conexion->consultar($sql);
+		if(!$result)
+		{
+			echo"<center><h2>No se pudo ejecutar la Inserción</h2>
+			<a href='javascript:window.history.back()'>Regresa a la pagina anterior</a></center>";
+		}
+		else {
+			echo"<center><h2>La información se ingreso correctamente</h2>
+		<a href='index.php?idu=$_POST[idu]'>Agregar otro</a></center>";
+		}		 
+	}
+	else {
+		echo"<center><h2>No esta autorizado para entrar a esta sección</h2>
+		<a href='javascript:window.history.back()'>Regresa a la pagina anterior</a></center>";
+	}
+	  echo"</div>";	  
+  }
+}
+$pagina = new agregarfamiliar();
+$pagina -> SetTitulo('People Mananger');
+$pagina ->SetNivel("../../");
+$pagina -> Mostrar();
+
+?>
